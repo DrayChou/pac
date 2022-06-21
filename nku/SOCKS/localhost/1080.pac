@@ -1,15 +1,18 @@
 "use strict";
 /*
 * Generated from https://github.com/NewFuture/pac
-* see all pac files https://pac.newfuture.xyz
+* see all pac files https://pac.newfuture.cc
 */
 var WhiteListHost = {
     "bt.byr.cn": true,
     "tv.byr.cn": true,
-    "pt.zhixing.bjtu.edu.cn": true,
     "pt.tju.edu.cn": true,
     "vagrant.yunyin.org": true,
-    "local.yunyin.org": true
+    "local.yunyin.org": true,
+    "ieeexplore.ieee.org": true,
+    "f.wanfangdata.com.cn": true,
+    "www.cqvip.com": true,
+    "download.cqvip.com": true
 };
 function FindProxyForURL(url, host) {
     if (host.indexOf(".") < 0
@@ -20,7 +23,8 @@ function FindProxyForURL(url, host) {
         || /^ipv6\..*\.edu\.cn$/.test(host)
         || /.*\.mobisys\.cc$/.test(host)
         || /.*\.newfuture\.win$/.test(host)
-        || /tuna.tsinghua.edu.cn$/.test(host)
+        || /tuna\.tsinghua\.edu\.cn$/.test(host)
+        || /.*zhixing\.bjtu\.edu\.cn$/.test(host)
     ) {/*Plain Host Name or in whitelist*/
         return "DIRECT";
     } else if (/^(\d{1,3}\.){3}\d{1,3}$/.test(host)
